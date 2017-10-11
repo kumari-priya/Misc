@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 2
+  </title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <SCRIPT type="text/javascript" src="AutoViewport.js"></SCRIPT> -->
+</head>
+
+<body>
+
+  <div id="container width: 100%;">
+      <div class="row well">
+  <div class="col-md-6 ">
+    <h3 class="text-justify">Computer chooses <span id="comp"><strong>_</strong></span></h3>
+    <h3>User chooses <span id="player"><strong>_</strong></span></h3>
+  </div>
+  <div class="col-md-6">
+    <h3>Wins <span id="win" class="label label-success"><strong>0</strong></span></h3>
+    <h3>Loss <span id="loss" class="label label-danger"><strong>0</strong></span></h3>
+    <h3>Draw <span id="draw" class="label label-info"><strong>0</strong></span></h3>
+  </div>
+</div>
+
+        </div>
+
+
+  </div>
+
+  <script type="text/javascript">
+
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ["r", "p", "s"];
+
+    //Declare variables for win loss draw
+    var win = 0;
+    var loss = 0;
+    var draw = 0;
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+
+      console.log(userGuess);
+      console.log(computerGuess);
+
+      if ( (userGuess == 'r') &&  (computerGuess =='s'))
+      {
+        win++;
+      }
+      else if ((userGuess == 's') &&  (computerGuess =='p'))
+      {
+        win++;
+      }
+      else if ((userGuess == 'p') &&  (computerGuess =='r'))
+      {
+        win++;
+      }
+      else if (userGuess  == computerGuess)
+      {
+        draw++;
+
+      }
+        else {
+          loss++;
+      }
+
+      document.getElementById('comp').textContent = computerGuess;
+      document.getElementById('player').textContent = userGuess;
+      document.getElementById('win').textContent = win;
+      document.getElementById('loss').textContent = loss;
+      document.getElementById('draw').textContent = draw;
+
+    };
+
+ // AutoViewport.setDimensions(1000, 1200);
+
+  </script>
+
+
+</body>
+
+</html>
