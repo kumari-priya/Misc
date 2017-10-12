@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+</head>
+
+<body>
+
+    <script>
+    var score = 0;
+    var counter = 1;
+    var acounter = 1;
+
+        var game = {
+            q1:["Question1.","t"],
+            q2:["Question2.","f"],
+            q3:["Question3.","t"],
+            q4:["Question4.","f"],
+            q5:["Question5.","t"],
+            q6:["Question6.","f"],
+            q7:["Question7.","t"],
+            q8:["Question8.","f"],
+            q9:["Question9.","t"],
+            q10:["Question10.","f"],
+        };
+
+  console.log(game[`q${counter}`][0]);
+
+document.onload = function(event)
+{
+  console.log(game[`q${counter}`][0]);
+  counter++;
+}
+        // This function is run whenever the user presses a key.
+        document.onkeyup = function(event) {
+          // var UserInput = event.key;
+
+
+          if (counter < 10)
+          {
+            var UserInput = String.fromCharCode(event.keyCode).toLowerCase();
+
+            if (UserInput === game[`q${acounter}`][1]) {
+
+                score+= 1;
+                counter+=1;
+                console.log("Score " +score);
+                console.log("Correct!!" );
+
+              }
+              else if((UserInput === 't') || (UserInput === 'f') )
+                {
+                  counter+=1;
+                  console.log("Score " +score);
+                  console.log("Incorrect!!" );
+              }
+            else {
+                console.log("Invalid input - select t or f");
+            }
+            if(counter > 1)
+            {
+                console.log(game[`q${counter}`][0]);
+            }
+          }
+          else {
+            console.log("game over!");
+          }
+        };
+
+// for (var i = 1; i < 11; i++) {
+//   console.log(game[`q${i}`][0]);
+// }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
